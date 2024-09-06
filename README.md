@@ -1,8 +1,8 @@
-# Project Title: Automatic Video Processing and Frame Transformation
+# Project Title: img2img upscale of a youtube video
 
 ## Overview
 
-This project automates the process of downloading a YouTube video, extracting frames, enhancing those frames with an AI model, and then compiling the frames back into a video with audio. 
+This project automates the process of downloading a YouTube video, extracting frames, enhancing those frames with an AI model, and then compiling the frames back into a video with audio.
 
 **Scripts in this project:**
 1. `start.bat` - Batch script to set up the environment, install dependencies, and run the main Python script.
@@ -26,7 +26,9 @@ Ensure you have Python installed. If not, download and install it from [Python's
 
 Run the `start.bat` script to set up a virtual environment and install necessary Python packages.
 
-```sh
+### `start.bat` Script:
+
+```bat
 @echo off
 
 REM Prompt users to read the README.1ST file for detailed instructions.
@@ -59,44 +61,71 @@ pause
 REM Deactivate the virtual environment and exit
 CALL env\Scripts\deactivate
 exit
-3. Download and Parse Video
-The download_and_parse.py script downloads a YouTube video, extracts frames, resizes them, and saves them as images.
+```
 
+### 3. Download and Parse Video
+
+The `download_and_parse.py` script downloads a YouTube video, extracts frames, resizes them, and saves them as images.
+
+```sh
 # Run the script
 python download_and_parse.py
-4. Enhance Images
-The create_images.py script processes the extracted frames using a style prompt and the Pix2Pix model.
+```
 
+### 4. Enhance Images
+
+The `create_images.py` script processes the extracted frames using a style prompt and the Pix2Pix model.
+
+```sh
 # Run the script
 python create_images.py
-5. Generate Final Video
-The make_from_manual.py script combines the processed images back into a video with audio.
+```
 
+### 5. Generate Final Video
+
+The `make_from_manual.py` script combines the processed images back into a video with audio.
+
+```sh
 # Run the script
 python make_from_manual.py
-Detailed Explanation
-Batch Script: start.bat
+```
+
+## Detailed Explanation
+
+### Batch Script: `start.bat`
+
 This script initializes the environment, installs dependencies, and runs the main Python script to download and process the video.
 
-Python Script: download_and_parse.py
-Download Video: Downloads the YouTube video using the pytube library.
-Extract Frames: Uses ffmpeg to extract frames from the video.
-Resize Frames: Resizes the frames based on a given percentage and saves them in a specified directory.
-Python Script: create_images.py
-Loads Model: Loads the StableDiffusionInstructPix2PixPipeline model.
-Processes Images: Enhances each frame based on a style prompt.
-Saves Processed Images: Saves the enhanced frames to a new directory.
-Python Script: make_from_manual.py
-Assembles Video: Combines the processed frames into a video.
-Adds Audio: Synchronizes the video with the original audio track.
-Saves Final Video: Saves the final video with a timestamped filename.
-Important Notes
-Dependencies: Ensure all dependencies listed in requirements.txt are installed.
-GPU: For best performance, use a CUDA-compatible GPU.
-Storage: Make sure you have enough storage space for downloading videos and storing frames.
-Troubleshooting
-If you encounter any errors related to missing dependencies, ensure they are properly installed.
-Check the paths and filenames to ensure they are correctly referenced.
-For issues related to GPU processing, make sure you have the appropriate drivers and libraries installed.
-Conclusion
+### Python Script: `download_and_parse.py`
+
+- **Download Video**: Downloads the YouTube video using the `pytube` library.
+- **Extract Frames**: Uses `ffmpeg` to extract frames from the video.
+- **Resize Frames**: Resizes the frames based on a given percentage and saves them in a specified directory.
+
+### Python Script: `create_images.py`
+
+- **Loads Model**: Loads the StableDiffusionInstructPix2PixPipeline model.
+- **Processes Images**: Enhances each frame based on a style prompt.
+- **Saves Processed Images**: Saves the enhanced frames to a new directory.
+
+### Python Script: `make_from_manual.py`
+
+- **Assembles Video**: Combines the processed frames into a video.
+- **Adds Audio**: Synchronizes the video with the original audio track.
+- **Saves Final Video**: Saves the final video with a timestamped filename.
+
+## Important Notes
+
+- **Dependencies**: Ensure all dependencies listed in `requirements.txt` are installed.
+- **GPU**: For best performance, use a CUDA-compatible GPU.
+- **Storage**: Make sure you have enough storage space for downloading videos and storing frames.
+
+## Troubleshooting
+
+- If you encounter any errors related to missing dependencies, ensure they are properly installed.
+- Check the paths and filenames to ensure they are correctly referenced.
+- For issues related to GPU processing, make sure you have the appropriate drivers and libraries installed.
+
+## Conclusion
+
 This project aims to simplify the process of downloading, enhancing, and compiling videos. Feel free to modify the scripts as needed to suit your use case.
