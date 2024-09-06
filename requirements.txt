@@ -1,0 +1,23 @@
+# To create a virtual environment and install the required packages, follow these steps:
+
+# On Unix-based systems (Linux/macOS):
+# python3 -m venv env
+# source env/bin/activate
+# pip install -r requirements.txt
+
+# On Windows:
+# python -m venv env
+# .\env\Scripts\activate
+# pip install -r requirements.txt
+
+pytube
+ffmpeg-python
+Pillow
+diffusers
+torch
+moviepy
+numpy
+transformers
+accelerate
+
+# Note: also install ffmpeg if on windows manually
